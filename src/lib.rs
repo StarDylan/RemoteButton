@@ -37,10 +37,10 @@ impl TryFrom<&Keycode> for SendableKeys{
             Keycode::R => Ok(Self::Letter('R')),
             Keycode::Z => Ok(Self::Letter('Z')),
             Keycode::Escape => Ok(Self::ESC),
-            Keycode::Left => Ok(Self::LeftArrow),
-            Keycode::Right => Ok(Self::RightArrow),
-            Keycode::Up => Ok(Self::UpArrow),
-            Keycode::Down => Ok(Self::DownArrow),
+            Keycode::A => Ok(Self::LeftArrow),
+            Keycode::D => Ok(Self::RightArrow),
+            Keycode::W => Ok(Self::UpArrow),
+            Keycode::S => Ok(Self::DownArrow),
             _ => Err("Not a Sendable Key")
         }
     }

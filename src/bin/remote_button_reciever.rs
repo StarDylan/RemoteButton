@@ -1,5 +1,5 @@
 use enigo::{Enigo, KeyboardControllable};
-use remote_button::{SendableKeys, STARFIELD_TOPIC, show_bytes, NEW_PERSON_TOPIC, NewClient};
+use remote_button::{SendableKeys, STARFIELD_TOPIC, show_bytes};
 use rumqttc::{MqttOptions, Client, QoS};
 use std::process::exit;
 use std::time::Duration;
@@ -14,11 +14,6 @@ fn main() {
    let (mut client, mut connection) = Client::new(mqttoptions, 10);
    if let Err(e) = client.subscribe(STARFIELD_TOPIC, QoS::ExactlyOnce) {
       eprintln!("Unable to Subscribe to {}\nError: {}", STARFIELD_TOPIC, e);
-      exit(1);
-   }
-
-   if let Err(e) = client.subscribe(NEW_PERSON_TOPIC, QoS::ExactlyOnce) {
-      eprintln!("Unable to Subscribe to {}\nError: {}",NEW_PERSON_TOPIC, e);
       exit(1);
    }
    
