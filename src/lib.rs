@@ -1,4 +1,4 @@
-use std::{ascii::escape_default, fmt::Display};
+use std::ascii::escape_default;
 
 use device_query::Keycode;
 use enigo::Key;
