@@ -5,15 +5,7 @@ use enigo::Key;
 use serde::{Serialize, Deserialize};
 
 pub const STARFIELD_TOPIC: &str = "starfield/key";
-pub const NEW_PERSON_TOPIC: &str = "starfield/new";
 
-
-#[derive(Serialize, Deserialize)]
-pub struct NewClient {
-    pub is_reciever: bool,
-    pub hostname: String,
-    pub is_ack: bool
-}
 
 #[derive(Serialize, Deserialize, Debug)]
 pub enum SendableKeys {
