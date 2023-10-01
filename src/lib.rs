@@ -1,7 +1,6 @@
 use std::ascii::escape_default;
 
 use device_query::Keycode;
-use enigo::Key;
 use serde::{Serialize, Deserialize};
 
 pub const STARFIELD_TOPIC: &str = "starfield/key";
@@ -44,41 +43,6 @@ impl TryFrom<&Keycode> for SendableKeys{
             _ => Err("Not a Sendable Key")
         }
     }
-}
-
-impl TryInto<Key> for SendableKeys {
-    type Error = &'static str;
-
-    fn try_into(self) -> Result<Key, Self::Error> {
-        match self {
-            SendableKeys::Num(number) => match number {
-                0 => Ok(Key::Num0),
-                1 => Ok(Key::Num1),
-                2 => Ok(Key::Num2),
-                3 => Ok(Key::Num3),
-                4 => Ok(Key::Num4),
-                5 => Ok(Key::Num5),
-                6 => Ok(Key::Num6),
-                7 => Ok(Key::Num7),
-                8 => Ok(Key::Num8),
-                9 => Ok(Key::Num9),
-                _ => Err("Cannot Convert this Number to Key"),
-            },
-            SendableKeys::Letter(letter) => match letter {
-                'R' => Ok(Key::R),
-                'Z' => Ok(Key::Z),
-                'G' => Ok(Key::G),
-                _ => Err("Cannot Convert this Letter to Key"),
-            },
-            SendableKeys::ESC => Ok(Key::Escape),
-            SendableKeys::LeftArrow => Ok(Key::LeftArrow),
-            SendableKeys::RightArrow => Ok(Key::RightArrow),
-            SendableKeys::UpArrow => Ok(Key::UpArrow),
-            SendableKeys::DownArrow => Ok(Key::DownArrow),
-            
-        }
-    }
-
 }
 
 pub fn show_bytes(bs: &[u8]) -> String {
