@@ -1,0 +1,26 @@
+mqtt_server_host = "mqtt.example.com"
+mqtt_server_port = 1883
+
+[key_map]
+
+[key_map.send_map]
+Num1 = "Num1"
+Num2 = "Num2"
+Num3 = "Num3"
+Num4 = "Num4"
+Num5 = "Num5"
+Num6 = "Num6"
+Num7 = "Num7"
+KeyR = "KeyR"
+
+
+
+[key_map.recv_map]
+Num1 = "Num1"
+Num2 = "Num2"
+Num3 = "Num3"
+Num4 = "Num4"
+Num5 = "Num5"
+Num6 = "Num6"
+Num7 = "Num7"
+KeyR = "KeyR"
