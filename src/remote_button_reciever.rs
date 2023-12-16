@@ -35,8 +35,8 @@ pub async fn main() -> ! {
                             Ok(key) => {
                                 if let Some(mapped_key) = cfg.key_map.recv_map.get(&key) {
                                     let _ = rdev::simulate(&rdev::EventType::KeyPress(*mapped_key));
-                                    let _ =
-                                        rdev::simulate(&rdev::EventType::KeyRelease(*mapped_key));
+                                    tokio::time::sleep(Duration::from_millis(10)).await;
+                                    let _ = rdev::simulate(&rdev::EventType::KeyRelease(*mapped_key));
                                 }
                             }
 
